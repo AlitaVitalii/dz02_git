@@ -1,3 +1,6 @@
+from faker import Faker
+
+
 def parse(query: str) -> dict:
     result = {}
     if '?' in query:
@@ -45,3 +48,10 @@ if __name__ == '__main__':
     assert parse_cookie(';age=28;') == {'age': '28'}
     assert parse_cookie('age=28;citi=kyiv') == {'age': '28', 'citi': 'kyiv'}
 
+fake = Faker()
+list_date = sorted([fake.date() for _ in range(5)])
+my_list = []
+for i in range(5):
+    my_list.append(list_date[i])
+print(list_date)
+print(my_list)
